@@ -623,6 +623,8 @@ const mainApp = new Vue({
                     siteUrl,
                     token
                 }, {});
+            }).catch(err => {
+              console.error('Failed to exchange authcode for token', err);
             });
         },
         initEditor(auth, options){

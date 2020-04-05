@@ -460,17 +460,9 @@
 <script src="main.js"></script>
 <script src="upup.min.js"></script>
 <script>
-    if ('serviceWorker' in navigator) {
-        store.init();
-        navigator.serviceWorker.register('/sw.js').then(reg => {
-            if (!reg.sync) {
-                console.log("No background sync support :(");
-            }
-        });
-    }
-
     UpUp && UpUp.start({
     'content-url': 'index.html',
+    'service-worker-url': '/sw-dist.js',
     'assets': [
         '/favicon.png?v=0',
         '/manifest.json?v=2',

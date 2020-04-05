@@ -1,3 +1,5 @@
 .idea/
 sass/.sass-cache/
 src/client.js
+src/*-dist.js
+node_modules
