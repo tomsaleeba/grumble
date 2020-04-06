@@ -12,7 +12,7 @@ export default [
     plugins: [nodeResolve(), commonjs()],
   },
   {
-    input: 'src/deps.js',
+    input: 'src/main.js',
     output: {
       file: 'src/app-dist.js',
       format: 'iife',

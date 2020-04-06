@@ -1,3 +1,10 @@
+import autosize from 'autosize'
+import * as upup from 'upup/src/upup.js'
+import Vue from 'vue/dist/vue.esm.browser.min.js'
+
+import store from './store.js'
+import * as client from './client.js'
+
 function discoverLink(url, linkName) {
     const key = "urlDiscoveredLinks:" + url;
     const readLinks = localStorage.getItem(key);
@@ -100,8 +107,8 @@ const CurrentBlog = {
 function obtainToken(code, tokenEndpoint) {
     const data = new FormData();
     data.append('code', code);
-    data.append('client_id', CLIENT_ID);
-    data.append('redirect_uri', REDIRECT_URI);
+    data.append('client_id', client.CLIENT_ID);
+    data.append('redirect_uri', client.REDIRECT_URI);
     data.append('grant_type',"authorization_code");
     const req = new Request(tokenEndpoint, {
         method: 'POST',
@@ -236,8 +243,8 @@ const authComponent = {
         return {
             siteUrl: "",
             authTarget: "",
-            clientID: CLIENT_ID,
-            redirectURI: REDIRECT_URI
+            clientID: client.CLIENT_ID,
+            redirectURI: client.REDIRECT_URI
         }
     },
     methods: {

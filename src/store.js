@@ -1,3 +1,5 @@
+import idb from 'idb'
+
 const store = {
   db: null,
   init() {
@@ -66,3 +68,5 @@ async function pruneQueue() {
     });
     return Promise.all(urlPromises);
 }
+
+export default store

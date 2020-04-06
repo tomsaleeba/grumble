@@ -1,9 +1,13 @@
+Fork of https://github.com/jjdelc/grumble. Main change is swapping to getting
+dependencies from npm and building with rollup, as opposed to storing deps in
+the project.
+
 # Grumble Micropub client
 
 A client side only [Micropub](https://www.w3.org/TR/micropub/) client.
 Installation only requires to deploy the files in a static web server.
 
-Current working client at https://grumble.isgeek.net/
+Current working client at https://grumble.006109.xyz/
 
 ## Features
 
@@ -21,7 +25,7 @@ Current working client at https://grumble.isgeek.net/
 Since this is a full client side client, it requires a few resources to support
 CORS:
    * Micropub endpoint
-   * You Indieauth page (where to discover the `authorization_url`)
+   * Your Indieauth page (where to discover the `authorization_url`)
    * Media endpoint
 
 Offline support only available for Chrome, Firefox has an
@@ -56,6 +60,12 @@ Options menu
 
 # Installation
 
+  1. clone the repo
+  1. install dependencies: `yarn`
+  1. create the `src/client.js` file (see below)
+  1. build the javascript: `yarn build`
+  1. it's ready to deploy
+
 ## Serve the files statically
 
 Just host the files anywhere that they can be served statically. This is
@@ -81,11 +91,11 @@ server {
 
 It is necessary to teach Grumble where it is being served from. You need to
 create a `client.js` file that gets served from the document root declaring
-two constants `CLIENT_ID` and `REDIRECT_URI`. 
+two constants `CLIENT_ID` and `REDIRECT_URI`.
 
 ```
-const CLIENT_ID = "https://grumble.isgeek.net";
-const REDIRECT_URI = "https://grumble.isgeek.net";
+export const CLIENT_ID = "https://grumble.isgeek.net";
+export const REDIRECT_URI = "https://grumble.isgeek.net";
 ```
 
 It's also perfectly fine to host on S3.
@@ -93,7 +103,7 @@ It's also perfectly fine to host on S3.
 
 ## Blog setup
 
-Remember that you need to enable CORS on your identification URL. This is 
+Remember that you need to enable CORS on your identification URL. This is
 how I do it on Nginx.
 
 ```

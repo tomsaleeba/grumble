@@ -104,8 +104,6 @@
 <p class="credits"><a href="https://github.com/jjdelc/grumble">Grumble</a></p>
 </div>
 
-<script src="vue.js"></script>
-
 <script type="text/x-template" id="authComponent">
 <div class="authSection">
     <form :action="authTarget" @submit.prevent="authSite" method="GET">
@@ -453,12 +451,7 @@
 </div>
 </script>
 
-<script src="autosize.min.js"></script>
-<script src="client.js"></script>
-<script src="idb.js"></script>
-<script src="store.js"></script>
-<script src="main.js"></script>
-<script src="upup.min.js"></script>
+<script src="app-dist.js"></script>
 <script>
     UpUp && UpUp.start({
     'content-url': 'index.html',
@@ -467,13 +460,6 @@
         '/favicon.png?v=0',
         '/manifest.json?v=2',
         '/style.css',
-        '/autosize.min.js',
-        '/client.js',
-        '/main.js',
-        '/store.js',
-        '/idb.js',
-        '/vue.js',
-        '/upup.min.js'
     ]
    });
 </script>
